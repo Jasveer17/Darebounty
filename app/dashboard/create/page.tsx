@@ -5,6 +5,9 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { UserButton } from '@clerk/nextjs';
 
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
+
 export default function CreateDarePage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);

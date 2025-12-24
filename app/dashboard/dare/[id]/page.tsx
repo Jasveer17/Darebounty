@@ -40,7 +40,7 @@ export default async function DareManagementPage({ params }: { params: { id: str
     redirect('/dashboard');
   }
 
-  const acceptedCount = dare.submissions.filter(s => s.status === 'ACCEPTED').length;
+  const acceptedCount = dare.submissions.filter((s) => s.status === 'ACCEPTED').length;
   const isActive = new Date(dare.deadline) > new Date() && dare.status === 'OPEN';
 
   return (
@@ -116,7 +116,6 @@ export default async function DareManagementPage({ params }: { params: { id: str
           <h2 className="text-2xl font-bold mb-6">Submissions</h2>
           <SubmissionList
             submissions={dare.submissions}
-            dareId={dare.id}
             maxWinners={dare.winnerCount}
             currentAccepted={acceptedCount}
           />

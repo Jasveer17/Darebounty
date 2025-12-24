@@ -19,14 +19,20 @@ export async function POST(request: NextRequest) {
   const body = JSON.stringify(payload);
 
   const wh = new Webhook(webhookSecret);
-  let evt: any;
+  let evt: {
+    type: string;
+    data: {
+      id: string;
+      email_addresses?: Array<{ email_address: string }>;
+    };
+  };
 
   try {
     evt = wh.verify(body, {
       'svix-id': svixId,
       'svix-timestamp': svixTimestamp,
       'svix-signature': svixSignature,
-    });
+    }) as typeof evt;
   } catch (err) {
     console.error('Error verifying webhook:', err);
     return NextResponse.json({ error: 'Invalid signature' }, { status: 400 });
@@ -36,7 +42,7 @@ export async function POST(request: NextRequest) {
 
   if (eventType === 'user.created') {
     const { id, email_addresses } = evt.data;
-    const email = email_addresses[0]?.email_address;
+    const email = email_addresses?.[0]?.email_address;
 
     if (email) {
       await prisma.user.upsert({
@@ -53,7 +59,7 @@ export async function POST(request: NextRequest) {
 
   if (eventType === 'user.updated') {
     const { id, email_addresses } = evt.data;
-    const email = email_addresses[0]?.email_address;
+    const email = email_addresses?.[0]?.email_address;
 
     if (email) {
       await prisma.user.update({

@@ -4,6 +4,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@clerk/nextjs';
 
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
+
 export default function OnboardingPage() {
   const [role, setRole] = useState<'CREATOR' | 'PARTICIPANT' | null>(null);
   const [loading, setLoading] = useState(false);

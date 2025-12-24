@@ -4,6 +4,8 @@ import { prisma } from '@/lib/prisma';
 import CreatorDashboard from '@/components/dashboard/CreatorDashboard';
 import ParticipantDashboard from '@/components/dashboard/ParticipantDashboard';
 
+export const dynamic = 'force-dynamic';
+
 export default async function DashboardPage() {
   const { userId } = await auth();
   const clerkUser = await currentUser();

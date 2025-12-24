@@ -17,14 +17,12 @@ interface Submission {
 
 interface SubmissionListProps {
   submissions: Submission[];
-  dareId: string;
   maxWinners: number;
   currentAccepted: number;
 }
 
 export default function SubmissionList({
   submissions,
-  dareId,
   maxWinners,
   currentAccepted,
 }: SubmissionListProps) {
