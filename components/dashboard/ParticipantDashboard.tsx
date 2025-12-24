@@ -38,7 +38,7 @@ export default async function ParticipantDashboard({ userId }: ParticipantDashbo
           </div>
         ) : (
           <div className="space-y-4">
-            {submissions.map((submission) => (
+            {submissions.map((submission: { id: string; createdAt: Date; status: string; proofUrl: string; note: string | null; dare: { id: string; title: string } }) => (
               <div
                 key={submission.id}
                 className="p-6 border border-neutral-800 rounded-lg"

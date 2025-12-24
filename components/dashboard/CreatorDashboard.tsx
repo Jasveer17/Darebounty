@@ -52,8 +52,8 @@ export default async function CreatorDashboard({ userId }: CreatorDashboardProps
           </div>
         ) : (
           <div className="space-y-4">
-            {dares.map((dare) => {
-              const acceptedCount = dare.submissions.filter((s) => s.status === 'ACCEPTED').length;
+            {dares.map((dare: { id: string; title: string; description: string; deadline: Date; status: string; submissions: Array<{ status: string }>; totalReward: number; winnerCount: number }) => {
+              const acceptedCount = dare.submissions.filter((s: { status: string }) => s.status === 'ACCEPTED').length;
               const isActive = new Date(dare.deadline) > new Date() && dare.status === 'OPEN';
 
               return (
