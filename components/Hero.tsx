@@ -12,7 +12,7 @@ export default function Hero() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
           <Link
-            href="/app"
+            href="/sign-up"
             className="px-8 py-4 bg-white text-black font-semibold rounded hover:bg-neutral-200 transition-colors w-full sm:w-auto"
           >
             Create a Dare
