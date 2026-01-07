@@ -3,7 +3,7 @@ export default function HowItWorks() {
     "Create a Dare",
     "Share it with your audience",
     "Collect proof submissions",
-    "Pick winners. Pay off-platform."
+    "Pick winners. Release payouts."
   ];
 
   return (
@@ -28,7 +28,7 @@ export default function HowItWorks() {
           ))}
         </div>
         <p className="text-sm text-neutral-500 text-center mt-8">
-          Payments handled manually for now. Speed first.
+          Creators review submissions and approve winners.
         </p>
       </div>
     </section>

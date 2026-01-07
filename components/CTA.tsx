@@ -8,12 +8,17 @@ export default function CTA() {
           Whop is for selling. DareBounty is for winning.
         </h2>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link
-            href="/app"
-            className="px-8 py-4 bg-white text-black font-semibold rounded hover:bg-neutral-200 transition-colors w-full sm:w-auto"
-          >
-            Create your first Dare
-          </Link>
+          <div className="flex flex-col items-center">
+            <Link
+              href="/app"
+              className="px-8 py-4 bg-white text-black font-semibold rounded hover:bg-neutral-200 transition-colors w-full sm:w-auto"
+            >
+              Create your first Dare
+            </Link>
+            <p className="text-xs text-neutral-500 mt-2">
+              Creator access — onboarding in progress
+            </p>
+          </div>
           <Link
             href="#"
             className="text-neutral-400 hover:text-white transition-colors"
@@ -21,6 +26,9 @@ export default function CTA() {
             Or see how creators use it →
           </Link>
         </div>
+        <p className="text-sm text-neutral-500 text-center mt-6">
+          Creators review submissions and approve winners.
+        </p>
       </div>
     </section>
   );
